@@ -2,15 +2,25 @@ import { isNull } from '../helpers';
 
 /**
  * Returns the id of the element
- * @param   { HTMLElement } element 
+ * @param   { HTMLElement } element
  * @return  { String }
  */
-export function getIdSelector(element: HTMLElement) {
+export function getId(element: HTMLElement) {
     const id = element.getAttribute('id');
 
     if (isNull(id)) {
         return null;
     }
 
-    return `#${id}`;
+    return id;
+}
+
+/**
+ * Returns the id of the element
+ * @param   { HTMLElement } element
+ * @return  { String }
+ */
+export function getIdSelector(element: HTMLElement) {
+    const id = getId(element);
+    return id ? `#${getId(element)}` : null;
 }

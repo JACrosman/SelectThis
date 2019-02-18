@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.ts',
+  watch: true,
   module: {
     rules: [
       {
@@ -16,8 +17,7 @@ module.exports = {
   },
   output: {
     filename: 'select-this.js',
-    path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'umd',
+    path: path.resolve(__dirname, 'server', 'public'),
     library: 'SelectThis'
   }
 };

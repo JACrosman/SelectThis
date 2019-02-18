@@ -6,14 +6,13 @@ import { isNull } from '../helpers';
  * @param  { String } selector
  * @return { Array }
  */
-export function isUnique(element: HTMLElement, selector: string)
-{
-  if(isNull(selector)) {
-      return false;
+export function isUnique(element: HTMLElement, selector: string) {
+  if (isNull(selector)) {
+    return false;
   }
 
   const elements = element.ownerDocument.querySelectorAll(selector);
-  return elements.length === 1 && elements[ 0 ] === element;
+  return elements.length === 1 && elements[0] === element;
 }
 
 /**
@@ -22,11 +21,10 @@ export function isUnique(element: HTMLElement, selector: string)
  * @param { String } Selectors
  * @return { Boolean }
  */
-export function isUniqueChild(element: HTMLElement, selector: string)
-{
+export function isUniqueChild(element: HTMLElement, selector: string) {
   const parentNode = element.parentElement;
-  const elements = parentNode.querySelectorAll( selector );
-  return elements.length === 1 && elements[ 0 ] === element;
+  const elements = parentNode.querySelectorAll(selector);
+  return elements.length === 1 && elements[0] === element;
 }
 
 /**
@@ -35,17 +33,16 @@ export function isUniqueChild(element: HTMLElement, selector: string)
  * @param { String } Selectors
  * @return { Boolean }
  */
-export function isUniqueSibling(element: HTMLElement, selector: string)
-{
+export function isUniqueSibling(element: HTMLElement, selector: string) {
   const parentNode = element.parentElement;
   const elements = parentNode.querySelectorAll(selector);
 
-  for(let i = 0; i < elements.length; i++) {
+  for (let i = 0; i < elements.length; i++) {
     const el = elements[i];
     if (el.parentElement === element.parentElement && el !== element) {
       return false;
     }
   }
-  
+
   return true;
 }
